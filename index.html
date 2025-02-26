@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact-Form</title>
+
+    <!-- CSS link -->
+     <link rel="stylesheet" href="style.css">
+
+     <!-- Favicon -->
+      <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+     
+     <!-- Google font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="form-container">
+        <form action="POST" id="form">
+            <h2 class="form-title">Contact Us</h2>
+            <div class="name">
+                <div class="form-details">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name">
+                    <span id="first-name-error">This field is required</span>
+                </div>
+                <div class="form-details">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name">
+                    <span id="last-name-error">This field is required</span>
+                </div>
+            </div>
+            <div class="form-details">
+                <label for="email-address">Email Address</label>
+                <input type="email" id="email-address" name="email">
+                <span id="email-error">Please enter a valid email address</span>
+            </div>
+            <div class="form-details">
+                <label>Query Type</label>
+               <span class="queries">
+                   <p><input type="radio" name="Enquiry" id="query"> General Enquiry</p>
+                   <p><input type="radio" name="Enquiry" id="query"> Support Request</p>
+                   <span id="query-error">Please select a query type</span>
+               </span>
+            </div>
+            <div class="form-details message">
+                <label>Message</label>
+                <textarea name="Message" id="textarea"></textarea>
+                <span id="textarea-error">This field is required</span>
+            </div>
+            <div class="form-details consent">
+                <input type="checkbox" id="consent">
+                <label for="consent">I consent to being contacted by the team</label>
+                <span id="checkbox-error">To submit this form, please consent to being contacted</span>
+            </div>
+            <div class="form-details">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- JS link -->
+    <script src="script.js"></script>
+</body>
+</html>
