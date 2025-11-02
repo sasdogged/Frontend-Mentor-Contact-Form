@@ -1,60 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact-Form</title>
 
     <!-- CSS link -->
-     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
-     <!-- Favicon -->
-      <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
-     
-     <!-- Google font -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon">
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
+
+    <!--  -->
+    <div class="message-popup" id="message-popup">
+        <div class="sent">
+            <img src="./icon-success-check.svg" alt="checkmark">
+            <h2>Message Sent!</h2>
+        </div>
+        <p>Thanks for completing the form. We'll be in touch soon!</p>
+    </div>
     <div class="form-container">
+        <!-- Form -->
         <form action="POST" id="form">
             <h2 class="form-title">Contact Us</h2>
             <div class="name">
+
+                <!-- First Name -->
                 <div class="form-details">
                     <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" name="first-name">
-                    <span id="first-name-error">This field is required</span>
+                    <input type="text" id="first-name" name="first-name" class="first-name">
+                    <span id="first-name-error"></span>
                 </div>
+
+                <!-- Last Name -->
                 <div class="form-details">
                     <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" name="last-name">
-                    <span id="last-name-error">This field is required</span>
+                    <input type="text" id="last-name" name="last-name" class="last-name">
+                    <span id="last-name-error"></span>
                 </div>
             </div>
+
+            <!-- Email Address -->
             <div class="form-details">
                 <label for="email-address">Email Address</label>
-                <input type="email" id="email-address" name="email">
-                <span id="email-error">Please enter a valid email address</span>
+                <input type="email" id="email-address" name="email" class="email">
+                <span id="email-error"></span>
             </div>
+
+            <!-- Radio Buttons -->
             <div class="form-details">
                 <label>Query Type</label>
-               <span class="queries">
-                   <p><input type="radio" name="Enquiry" id="query"> General Enquiry</p>
-                   <p><input type="radio" name="Enquiry" id="query"> Support Request</p>
-                   <span id="query-error">Please select a query type</span>
-               </span>
+                <span class="queries">
+                    <p><input type="radio" name="Enquiry" value="General Enquiry" id="query"> General Enquiry</p>
+                    <p><input type="radio" name="Enquiry" value="Support Request" id="query"> Support Request</p>
+                    <span id="query-error"></span>
+                </span>
             </div>
+
+            <!-- Textarea -->
             <div class="form-details message">
                 <label>Message</label>
                 <textarea name="Message" id="textarea"></textarea>
-                <span id="textarea-error">This field is required</span>
+                <span id="textarea-error"></span>
             </div>
+
+            <!-- Checkbox -->
             <div class="form-details consent">
-                <input type="checkbox" id="consent">
+                <input type="checkbox" id="consent" name="consent">
                 <label for="consent">I consent to being contacted by the team</label>
-                <span id="checkbox-error">To submit this form, please consent to being contacted</span>
+                <span id="checkbox-error"></span>
             </div>
+
+            <!-- Button -->
             <div class="form-details">
                 <button type="submit">Submit</button>
             </div>
@@ -64,4 +92,5 @@
     <!-- JS link -->
     <script src="script.js"></script>
 </body>
+
 </html>

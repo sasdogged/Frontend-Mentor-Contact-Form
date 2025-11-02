@@ -9,17 +9,42 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100svh;
+    position: relative;
+}
+.message-popup{
+    background-color: hsl(187, 24%, 22%);
+    width: 60%;
+    max-width: 460px;
+    margin-top: 1.1em;
+    color: #fff;
+    padding-block: 1.3em;
+    padding-inline: .8em;
+    border-radius: 8.7px;
+    position: absolute;
+    top: -20%;
+    transition: top 0.5s ease-in-out;
+}
+.show{
+    position: absolute;
+    top: 10%;
+}
+.sent{
+    display: flex;
+    font-size: .7rem;
+    gap: .7em;
+    margin-bottom: .9em;
 }
 .form-container{
     background-color: hsla(0, 0%, 100%);
     padding-block: 2em;
+    margin-block: 3em;
     border-radius: 8.7px;
     min-height: 600px;
     width: 80%;
     max-width: 740px;
     margin-inline: auto;
-    margin-block: 3em;
 }
 form{
     padding-inline: 1em;
@@ -39,8 +64,9 @@ form label::after{
     color: hsl(169, 82%, 27%);
     margin-inline-start: .3em;
 }
-form input[type="text"],
-form input[type="email"]{
+form .first-name,
+form .last-name,
+form .email{
     display: block;
     width: 100%;
     min-height: 42px;
@@ -53,10 +79,6 @@ form input[type="email"]{
     color: hsla(0, 0%, 50%, 0.9);
     font-weight: 600;
     transition: all 0.5s ease-in-out;
-}
-form input[type="radio"]{
-    accent-color: hsl(169, 82%, 27%);
-    transform: scale(1.2);
 }
 form input[type="text"]:hover,
 form input[type="text"]:focus-visible{
@@ -71,6 +93,13 @@ form input[type="email"]:focus-visible{
 .form-details{
     margin-bottom: 1.6em;
 }
+
+/* Radio Buttons */
+form input[type="radio"]{
+    accent-color: hsl(169, 82%, 27%);
+    transform: scale(1.2);
+    cursor: pointer;
+}
 .form-details p{
     border: 3px solid hsla(0, 0%, 50%, 0.3);
     margin-top: .7em;
@@ -79,6 +108,7 @@ form input[type="email"]:focus-visible{
     padding: .5em 1.8em;
     color: hsla(0, 0%, 0%, 0.8);
     transition: all 0.5s ease-in-out;
+    cursor: pointer;
 }
 .form-details p:hover,
 .form-details p:focus-visible{
@@ -90,7 +120,7 @@ form input[type="email"]:focus-visible{
 .message{
     margin-block:1.2em ;
 }
- .message textarea{
+.message textarea{
     border: 1px solid hsla(0, 0%, 50%, 0.3);
     min-height: 160px;
     display: block;
@@ -111,9 +141,11 @@ form input[type="email"]:focus-visible{
     border: 2px solid hsl(169, 82%, 27%);
 }
 /* Checkbox */
-.consent input[type="checkbox"]{
+.consent input[type="checkbox"],
+.consent label{
     accent-color: hsl(169, 82%, 27%);
     transform: scale(1.2);
+    cursor: pointer;
 }
 .consent label{
     margin-inline: .5em;
@@ -132,7 +164,7 @@ form input[type="email"]:focus-visible{
 .form-details button:hover,
 .form-details button:focus-visible{
     cursor: pointer;
-    transform: scale(0.9);
+    box-shadow: 0 6px 8px hsl(0, 0%, 10%);
     color: #fff;
 }
 
@@ -151,8 +183,21 @@ form input[type="email"]:focus-visible{
 
 }
 /* Javascript styling */
+
+.form-details input.error,
+.form-details textarea.error{
+    border: 3px solid hsl(0, 66%, 54%);
+}
+.form-details input.error:hover,
+.form-details textarea.error:hover{
+    border: 3px solid hsl(0, 66%, 54%);
+}
+.form-details input.error:focus,
+.form-details textarea.error:focus{
+    border: 3px solid hsl(0, 66%, 54%);
+}
+
 .form-details #first-name-error{
-    display: none;
     color: hsla(0, 100%, 50%, 0.9);
     margin-top: .3em;
     margin-left: .5em;
@@ -160,7 +205,6 @@ form input[type="email"]:focus-visible{
 }
 /* last name */
 .form-details #last-name-error{
-    display: none;
     color: hsla(0, 100%, 50%, 0.9);
     margin-top: .3em;
     margin-left: .5em;
@@ -168,7 +212,6 @@ form input[type="email"]:focus-visible{
 }
 /* email */
 .form-details #email-error{
-    display: none;
     color: hsla(0, 100%, 50%, 0.9);
     margin-top: .3em;
     margin-left: .5em;
@@ -176,7 +219,6 @@ form input[type="email"]:focus-visible{
 }
 /* textarea */
 .form-details #textarea-error{
-    display: none;
     color: hsla(0, 100%, 50%, 0.9);
     margin-top: .3em;
     margin-left: .5em;
@@ -184,17 +226,42 @@ form input[type="email"]:focus-visible{
 }
 /* Checkbox */
 .form-details #checkbox-error{
-    display: none;
+    color: hsla(0, 100%, 50%, 0.9);
+    margin-top: .3em;
+    margin-left: .5em;
+    font-size: .83em;
+    display: block;
+}
+/* Query */
+.form-details #query-error{
     color: hsla(0, 100%, 50%, 0.9);
     margin-top: .3em;
     margin-left: .5em;
     font-size: .83em;
 }
-/* Query */
-.form-details #query-error{
-    display: none;
-    color: hsla(0, 100%, 50%, 0.9);
-    margin-top: .3em;
-    margin-left: .5em;
-    font-size: .83em;
+
+/* Completed styling */
+main {
+    font-family: 'Karla';
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+}
+main > button {
+    border: 0;
+    outline: 0;
+    padding: .6em 1em;
+    max-width: 300px;
+    font-size: 1.2rem;
+    color: hsla(0, 0%, 50%, 0.9);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+    transition: all 0.5s ease-in-out;
+}
+main > button:hover{
+box-shadow: 0 6px 8px hsl(0, 0%, 10%);
 }
