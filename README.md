@@ -30,7 +30,7 @@ Users should be able to:
 
 ### What I learned
 
-- Learnt how to effectively form validation on the client side.
+- Learnt how to effectively use form validation on the client side.
 - Learned and used input and change event listeners on form inputs 
 
 
