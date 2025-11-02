@@ -15,6 +15,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
       firstNameError.textContent = '';
       firstName.classList.remove('error')
    }
+   firstName.value = ''
 
    /*Last Name */
    const lastName = document.getElementById('last-name');
@@ -28,6 +29,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
       lastNameError.textContent = '';
       lastName.classList.remove("error")
    }
+   lastName.value = ''
 
    /*Email */
    const emailInput = document.getElementById('email-address');
@@ -41,6 +43,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
       emailError.textContent = ' ';
       emailInput.classList.remove('error')
    }
+   emailInput.value = ''
 
    /* Text-Area */
    const textArea = document.getElementById('textarea');
@@ -54,6 +57,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
       textAreaError.textContent = ' ';
       textArea.classList.remove('error')
    }
+   textArea.value = ''
 
    /* Query/Radio-Button */
    const radioButton = document.getElementsByName('Enquiry');
@@ -72,6 +76,9 @@ document.getElementById('form').addEventListener('submit', function(event) {
    } else {
       radioError.textContent = ' '
    }
+   radioButton.forEach(radio => {
+      radio.checked = false
+   })
 
    /* Checkbox */
    const checkbox = document.getElementById('consent');
@@ -83,6 +90,7 @@ document.getElementById('form').addEventListener('submit', function(event) {
    }  else {
       checkboxError.textContent = '';
    }
+   checkbox.checked = false
 
    /*Message popup */
    const popup = document.getElementById('message-popup')
